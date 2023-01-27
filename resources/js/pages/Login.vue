@@ -5,7 +5,7 @@
 				<section class="w-1/2 loginback text-center font-bold text-white"></section>
 					
 				<section class="p-8 w-1/2 bg-white">
-					<h3 class="text-gray-900 text-2xl text-center mb-8">Аккаунтга кириш</h3>
+					<h3 class="text-gray-900 text-2xl text-center mb-8">Войти в картотеку</h3>
 					<p v-if="errors" class="text-center text-red-500 text-sm">
 						{{errors}}
 					</p>
@@ -18,7 +18,7 @@
 						<input id="password" type="password" minlength="6" v-model="form.password" autocomplete="off" required class="w-full flex-1 py-1 border-b border-gray-200 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none"/>
 					</div>
 					<div class="flex text-sm justify-between mt-8">
-						<button type="submit" class="bg-green-600 hover:bg-green-400 transition duration-150 shadow-xl w-full text-white p-2">Кириш</button>
+						<button type="submit" class="bg-green-600 hover:bg-green-400 transition duration-150 shadow-xl w-full text-white p-2">Войти</button>
 					</div>
 				</section>
 			</form>

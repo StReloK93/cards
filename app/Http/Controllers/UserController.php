@@ -6,9 +6,9 @@ use App\Models\User;
 use Validator;
 use Auth;
 use Hash;
+
 class UserController extends Controller
 {
-
     public function Login(Request $request)
     {
         $credentials = $request->validate([
@@ -78,5 +78,36 @@ class UserController extends Controller
             ['tokenable_id', $user->id],
             ['id', $req->id],
         ])->delete();
+    }
+
+    public function passwordReset(Request $req){
+        $user = Auth::user();
+    
+        $validate = Validator::make($req->all(),[
+            'old' => 'required',
+            'new' => 'required|min:6|max:255|confirmed',
+        ],$messages = [
+            'required' => ":attribute bo'sh bo'lmasligi kerak.",
+            'min' => ":attribute :min simboldan kam bo'lmasligi kerak.",
+            'confirmed' => ":attributelar mos kelmayabdi"
+        ],[
+            'new' => 'Parol'
+        ]);
+        
+        if (Hash::check($req->old, $user->password) == false) {
+            return response()->json([
+                'message' => "hozirgi parol to'gri emas",
+            ], 200);
+        }
+
+        if($validate->fails()){
+            return response()->json($validate->messages(),299);
+        }
+
+
+        
+        $user->password = Hash::make($req->new);
+        
+        return $user->save();
     }
 }
