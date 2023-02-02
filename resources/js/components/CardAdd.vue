@@ -154,7 +154,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive } from 'vue'
 import { useStore } from 'vuex'
 const { state } = useStore()
 
