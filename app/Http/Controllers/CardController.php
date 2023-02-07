@@ -51,6 +51,7 @@ class CardController extends Controller
         $card->RAZRYAD = $request->RAZRYAD;
         $card->leavetext = $request->leavetext;
         $card->desc_time = $request->desc_time;
+        $card->bron = $request->bron;
         $card->D10 = now();
         $card->save();
 
@@ -93,8 +94,9 @@ class CardController extends Controller
         $card->PODRAZD =        $request->PODRAZD;
         $card->PROF =           $request->PROF;
         $card->RAZRYAD =        $request->RAZRYAD;
-        $card->leavetext =     $request->leavetext;
+        $card->leavetext =      $request->leavetext;
         $card->desc_time =      $request->desc_time;
+        $card->bron =           $request->bron;
         $card->save();
 
         return $card;

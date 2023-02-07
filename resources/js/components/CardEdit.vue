@@ -79,7 +79,6 @@
                 </aside>
 
 
-
                 <aside class="w-1/2 pl-2 pt-4">
 
                     <div class="relative z-0 mb-4 w-full group">
@@ -118,9 +117,15 @@
                         <input id="inpt24" v-model="formData.V_GODNOST" class="material-input peer" placeholder=" " />
                         <label for="inpt24" class="material-label">Годность</label>
                     </div>
-                    <div class="relative z-0 mb-4 w-full group">
-                        <input id="inpt25" v-model="formData.V_ODO" class="material-input peer" placeholder=" " />
-                        <label for="inpt25" class="material-label">ОДО</label>
+                    <div class="relative z-0 mb-4 w-full group flex leading-none">
+                        <main class="w-11/12">
+                            <input id="inpt25" v-model="formData.V_ODO" class="material-input peer" placeholder=" "/>
+                            <label for="inpt25" class="material-label">ОДО</label>
+                        </main>
+                        <main class="w-1/12 text-center">
+                            <div class="text-xs text-gray-500 relative -top-2">Брон</div>
+                            <input id="inpt34" type="checkbox" true-value="1" false-value="0" v-model="formData.bron"/>
+                        </main>
                     </div>
                     <div class="relative z-0 mb-4 w-full group">
                         <input id="inpt26" v-model="formData.DATAPRIEM" class="material-input peer" placeholder=" " />
@@ -165,6 +170,8 @@ import moment from 'moment'
 import { useStore } from 'vuex'
 const { state } = useStore()
 const formData = { ...state.selected }
+
+console.log(formData)
 
 
 if (formData.DATAR.includes('-') == false) formData.DATAR = moment(formData.DATAR, 'DD-MM-YYYY').format("YYYY-MM-DD")

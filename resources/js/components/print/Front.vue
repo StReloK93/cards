@@ -130,7 +130,7 @@
                         </div>
                     </td>
                     <td class="border-table px-1 py-0">
-                        <div>Участие в ВОВ и боевых <span class="font-bold ml-8">{{ selected.UCHAST_CHS }}</span></div>
+                        <div>Участие в ВОВ и боевых <span class="font-bold ml-4 text-xs">{{ selected.UCHAST_CHS }}</span></div>
                         <div>действиях в Афганистане</div>
                     </td>
                     <td class="border-table px-1 py-0 text-center">29</td>
@@ -169,10 +169,10 @@
                 <tr class="leading-1">
                     <td class="border-table px-1 py-[1px] leading-none h-[27px]">
                         <span>
-                            Отношение к воинскому спец. Учету: 
+                            Отношение к воинскому спец. Учету: <span class="font-bold" v-if="selected.bron == '1'">Брон</span>
                         </span>
-                        <div class="contents font-bold ">
-                            {{ selected.V_ODO }}
+                        <div class="font-bold">
+                            {{ selected.V_ODO.substr(0, 50) }}
                         </div>
                     </td>
                     <td class="border-table px-1 py-0 text-center">36</td>
